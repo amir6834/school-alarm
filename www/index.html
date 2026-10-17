@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b1140">
+<title>زنگ مدرسه</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#ebe6ff;--bg2:#ffdcee;--bg3:#d6ecff;--tx:#1d1740;--mut:#5d5784;--gl:rgba(255,255,255,.5);--gb:rgba(255,255,255,.75);--ac:#7c4dff;--ac2:#ff4d9d;--ok:#16c784;--sh:0 10px 34px rgba(80,60,160,.18);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#150f33;--bg2:#2b1055;--bg3:#0d2a4c;--tx:#f4f1ff;--mut:#b7afdb;--gl:rgba(255,255,255,.09);--gb:rgba(255,255,255,.17);--sh:0 10px 34px rgba(0,0,0,.42)}}
+:root[data-theme="dark"]{--bg1:#150f33;--bg2:#2b1055;--bg3:#0d2a4c;--tx:#f4f1ff;--mut:#b7afdb;--gl:rgba(255,255,255,.09);--gb:rgba(255,255,255,.17);--sh:0 10px 34px rgba(0,0,0,.42)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{margin:0;min-height:100%}
+body{font-family:Vazirmatn,Tahoma,system-ui,sans-serif;color:var(--tx);background:linear-gradient(160deg,var(--bg1),var(--bg2) 55%,var(--bg3)) fixed var(--bg1);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg1)}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.blob{position:fixed;width:300px;height:300px;border-radius:50%;filter:blur(70px);opacity:.55;pointer-events:none;animation:fl 16s ease-in-out infinite alternate}
+.b1{top:-70px;right:-90px;background:var(--ac)}.b2{bottom:70px;left:-110px;background:var(--ac2);animation-delay:-7s}
+@keyframes fl{to{transform:translate(-40px,60px) scale(1.25)}}
+.main{position:relative;z-index:1;max-width:520px;margin:auto;padding:18px 16px 120px}
+.page{display:none}.page.on{display:block;animation:in .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes in{from{opacity:0;transform:translateY(20px) scale(.98)}to{opacity:1;transform:none}}
+.card{background:var(--gl);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid var(--gb);border-radius:24px;box-shadow:var(--sh);padding:16px;margin-bottom:14px}
+.hero{border-radius:34px;padding:26px 20px;text-align:center}
+#clk{font-size:3.4rem;font-weight:800;line-height:1.1;margin-top:6px;background:linear-gradient(120deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+#dt{font-size:1.05rem;font-weight:600}
+h3{margin:0 0 10px;font-size:1.05rem}.mut{color:var(--mut);font-size:.85rem;margin:6px 0 0}
+.row{display:flex;gap:12px;align-items:center;padding:11px 2px;border-bottom:1px solid var(--gb)}.row:last-child{border:0}
+.tm{font-weight:600;color:var(--ac);min-width:58px}.nx{background:var(--gl);border-radius:14px;padding-inline:10px;font-weight:600}
+.pe{display:flex;gap:14px;align-items:center;color:#fff;padding:18px;border-radius:26px;margin-bottom:14px;background:linear-gradient(135deg,#ff8a1f,#ff3d71);box-shadow:0 12px 32px rgba(255,61,113,.45);animation:pulse 2.2s ease-in-out infinite}
+.pe .em{font-size:2.4rem;animation:hop 1.1s ease-in-out infinite}.pe b{display:block;font-size:1.1rem}.pe small{opacity:.9}
+@keyframes pulse{50%{transform:scale(1.025)}}@keyframes hop{50%{transform:translateY(-6px) rotate(-8deg)}}
+.big{font-size:2rem;font-weight:800}.al{display:flex;align-items:center;gap:12px;transition:.3s}
+.x{margin-inline-start:auto;background:none;border:0;color:var(--ac2);font-size:1.2rem;cursor:pointer;padding:6px}
+.sw{width:54px;height:30px;border-radius:99px;background:rgba(128,128,165,.4);position:relative;transition:background .35s;cursor:pointer;flex:none}
+.sw::after{content:"";position:absolute;top:3px;inset-inline-start:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.3);transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.sw.on{background:linear-gradient(135deg,var(--ac),var(--ac2))}.sw.on::after{transform:translateX(-24px)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{font:inherit;font-size:.85rem;color:var(--tx);padding:8px 13px;border-radius:14px;background:var(--gl);border:1px solid var(--gb);cursor:pointer;transition:.3s cubic-bezier(.3,1.5,.5,1)}
+.chip.on{background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;border-color:transparent;transform:scale(1.07)}
+.in{display:block;width:100%;margin:8px 0;padding:12px 14px;font:inherit;color:var(--tx);background:var(--gl);border:1px solid var(--gb);border-radius:14px}
+.btn{font:inherit;font-weight:600;width:100%;margin-top:6px;padding:13px;border:0;border-radius:16px;color:#fff;cursor:pointer;background:linear-gradient(135deg,var(--ac),var(--ac2));box-shadow:0 8px 22px rgba(124,77,255,.4);transition:transform .2s}
+.btn:active{transform:scale(.96)}.btn.ghost{background:var(--gl);color:var(--tx);box-shadow:none;border:1px solid var(--gb)}
+.nav{position:fixed;z-index:5;left:0;right:0;bottom:0;display:flex;justify-content:space-around;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--gl);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-top:1px solid var(--gb)}
+.nav button{font:inherit;font-size:.78rem;background:none;border:0;color:var(--mut);display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;transition:.35s cubic-bezier(.3,1.5,.5,1)}
+.nav button span{font-size:1.4rem}.nav button.on{color:var(--ac);font-weight:600;transform:translateY(-4px) scale(1.08)}
+#ring{position:fixed;inset:0;z-index:50;display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:20px;color:#fff;text-align:center;background:rgba(12,6,34,.8);backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px)}
+#ring.on{display:flex;animation:in .4s}.bell{font-size:4rem;animation:rg .6s ease-in-out infinite}
+@keyframes rg{0%,100%{transform:rotate(-16deg)}50%{transform:rotate(16deg)}}
+#chal{width:min(92%,360px);padding:20px;border-radius:28px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25)}
+#chal .in{color:#fff;background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3);text-align:center;font-size:1.4rem}
+.q{font-size:2.2rem;font-weight:800;margin:8px 0;direction:rtl}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.tile{aspect-ratio:1;font:inherit;font-size:1.9rem;font-weight:800;color:#fff;border-radius:20px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.14);cursor:pointer;transition:.3s cubic-bezier(.3,1.5,.5,1)}
+.tile.done{background:var(--ok);transform:scale(.88);opacity:.65}
+.shake{animation:sh .4s}@keyframes sh{20%,60%{transform:translateX(-10px)}40%,80%{transform:translateX(10px)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div>
+<main class="main">
+
+<section class="page on" id="home">
+  <div class="card hero"><div id="dt"></div><div id="clk" dir="ltr"></div></div>
+  <div id="pe"></div>
+  <div class="card"><h3>کلاس‌های امروز</h3><div id="today"></div></div>
+  <div class="card"><h3>آلارم بعدی</h3><div class="big" id="next"></div></div>
+  <div class="card"><h3>رکورد بیداری</h3><div class="big" id="stk"></div><p class="mut">روزهای پشت‌سرهم که چالش را حل کردی</p></div>
+</section>
+
+<section class="page" id="alarms">
+  <div id="alist"></div>
+  <div class="card">
+    <h3>آلارم جدید</h3>
+    <input id="nt" class="in" type="time" value="06:30" dir="ltr"><input id="nl" class="in" placeholder="برچسب (مثلاً مدرسه)">
+    <div class="chips" id="nchips"></div>
+    <button class="btn" id="addA">افزودن آلارم</button>
+    <button class="btn ghost" id="test">تست آلارم و چالش</button>
+    <h3 style="margin-top:20px">تنظیمات</h3><div>نوع چالش بیداری</div>
+    <div class="chips" id="cchips"><button class="chip" data-c="math">ریاضی ساده</button><button class="chip" data-c="tap">لمس اعداد</button><button class="chip" data-c="mix">تصادفی</button></div>
+    <div class="al"><div>یادآور ساعت ۲۰:۰۰ شب قبل از روز ورزش</div><div class="sw" id="pesw" role="switch" tabindex="0" style="margin-inline-start:auto"></div></div>
+    <p id="note" class="mut">آلارم فقط وقتی صدا می‌دهد که برنامه باز و صفحه روشن باشد. یک بار صفحه را لمس کن تا صدا فعال شود.</p>
+  </div>
+</section>
+
+<section class="page" id="sched">
+  <div class="card"><h3>برنامه هفتگی</h3><div class="chips" id="dchips"></div><div id="clist"></div></div>
+  <div class="card">
+    <h3>افزودن درس به این روز</h3>
+    <input id="cn" class="in" placeholder="نام درس، مثلاً تربیت بدنی">
+    <input id="ct" class="in" type="time" value="08:00" dir="ltr">
+    <button class="btn" id="addC">افزودن درس</button>
+    <p class="mut">اگر نام درس «تربیت بدنی» یا «ورزش» باشد، یادآور ورزش در همان روز نمایش داده می‌شود.</p>
+  </div>
+</section>
+
+</main>
+
+<div id="ring"><div class="bell">🔔</div><h2 style="margin:0">وقت بیدار شدنه!</h2><div id="chal"></div></div>
+
+<nav class="nav">
+  <button class="on" data-p="home"><span>🏠</span>خانه</button>
+  <button data-p="alarms"><span>⏰</span>آلارم‌ها</button>
+  <button data-p="sched"><span>📚</span>برنامه کلاسی</button>
+</nav>
+
+<script>
+/* ---------- Utils ---------- */
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const fa=s=>String(s).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
+const rnd=n=>Math.floor(Math.random()*n);
+const DN=['یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنجشنبه','جمعه','شنبه'];   // index = Date.getDay()
+const SH=['ی','د','س','چ','پ','ج','ش'],ORDER=[6,0,1,2,3,4,5];            // هفته از شنبه شروع می‌شود
+
+/* ---------- Store (localStorage) ---------- */
+const load=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}};
+const seed={6:[{id:1,t:'07:30',n:'ریاضی'},{id:2,t:'08:30',n:'ادبیات'},{id:3,t:'09:30',n:'تربیت بدنی'}],0:[{id:4,t:'07:30',n:'علوم'},{id:5,t:'08:30',n:'زبان انگلیسی'}]};
+const S={alarms:load('al',[{id:1,t:'06:30',days:[6,0,1,2,3],on:true}]),sched:load('sc',seed),set:load('st',{ch:'mix',pe:true,streak:0,last:'',ok:[]})};
+const sv=()=>{try{localStorage.setItem('al',JSON.stringify(S.alarms));localStorage.setItem('sc',JSON.stringify(S.sched));localStorage.setItem('st',JSON.stringify(S.set))}catch(e){}syncNative()};
+
+/* ---------- Navigation ---------- */
+function go(p){
+  $$('.page').forEach(x=>x.classList.toggle('on',x.id===p));
+  $$('.nav button').forEach(b=>b.classList.toggle('on',b.dataset.p===p));
+  ({home:renderHome,alarms:renderAlarms,sched:renderSched})[p]();
+  scrollTo({top:0,behavior:'smooth'});
+}
+$$('.nav button').forEach(b=>b.onclick=()=>go(b.dataset.p));
+
+/* ---------- Home ---------- */
+const rowHtml=c=>`<div class="row" data-id="${c.id}"><span class="tm" dir="ltr">${fa(c.t)}</span><span>${esc(c.n)}</span><button class="x" aria-label="حذف">✕</button></div>`;
+const byTime=l=>(l||[]).slice().sort((a,b)=>a.t.localeCompare(b.t));
+function nextAlarm(){
+  const n=new Date();let b=null;
+  S.alarms.filter(a=>a.on).forEach(a=>{
+    const [h,m]=a.t.split(':');
+    for(let i=0;i<8;i++){const d=new Date(n);d.setDate(n.getDate()+i);d.setHours(+h,+m,0,0);
+      if(d>n&&a.days.includes(d.getDay())){if(!b||d<b.d)b={d,t:a.t};break}}
+  });
+  return b?`${b.d.toDateString()===n.toDateString()?'امروز':DN[b.d.getDay()]}، ساعت ${fa(b.t)}`:'آلارم فعالی نیست';
+}
+function renderHome(){
+  const cl=byTime(S.sched[new Date().getDay()]);
+  const pe=cl.some(c=>/ورزش|تربیت\s*بدنی/.test(c.n));
+  $('#pe').innerHTML=pe?`<div class="pe"><span class="em">🏃</span><div><b>امروز ورزش داری، لباس ورزشی بپوش!</b><small>درس ورزش در برنامه امروزت هست</small></div></div>`:'';
+  const hm=new Date().toTimeString().slice(0,5),nxt=cl.find(c=>c.t>=hm);$('#today').innerHTML=cl.length?cl.map(c=>rowHtml(c).replace('class="row"',c===nxt?'class="row nx"':'class="row"').replace(/<button.*?<\/button>/,'')).join(''):'<p class="mut">برای امروز کلاسی ثبت نشده. از تب برنامه کلاسی درس اضافه کن.</p>';
+  $('#next').textContent=nextAlarm();$('#stk').textContent=fa(S.set.streak)+' روز';
+}
+
+/* ---------- Alarms ---------- */
+let nd=[6,0,1,2,3];
+const mk=id=>{$(id).innerHTML=ORDER.map(d=>`<button class="chip" data-d="${d}">${DN[d]}</button>`).join('')};
+const mark=(id,f)=>$$(id+' .chip').forEach(c=>c.classList.toggle('on',f(+c.dataset.d)));
+function renderAlarms(){
+  $('#alist').innerHTML=S.alarms.slice().sort((a,b)=>a.t.localeCompare(b.t)).map(a=>`
+    <div class="card al" data-id="${a.id}">
+      <div><div class="big" dir="ltr">${fa(a.t)}</div>
+      <div class="mut">${a.l?esc(a.l)+'، ':''}${a.days.length===7?'هر روز':ORDER.filter(d=>a.days.includes(d)).map(d=>SH[d]).join(' ')}</div></div>
+      <button class="x" aria-label="حذف">✕</button><div class="sw${a.on?' on':''}" role="switch" tabindex="0"></div>
+    </div>`).join('')||'<div class="card"><p class="mut">هنوز آلارمی نداری. یکی بساز تا هر روز مدرسه به‌موقع بیدار شوی.</p></div>';
+}
+$('#alist').onclick=e=>{
+  const c=e.target.closest('[data-id]');if(!c)return;
+  const a=S.alarms.find(x=>x.id==c.dataset.id);
+  if(e.target.closest('.sw')){const s=e.target.closest('.sw');a.on=!a.on;s.classList.toggle('on',a.on)}
+  else if(e.target.closest('.x')){
+    c.style.opacity=0;c.style.transform='translateX(-70px)';
+    setTimeout(()=>{S.alarms=S.alarms.filter(x=>x!==a);sv();renderAlarms();renderHome()},300);return;
+  }
+  sv();renderHome();wl();
+};
+$('#nchips').onclick=e=>{const c=e.target.closest('.chip');if(!c)return;const d=+c.dataset.d;
+  nd=nd.includes(d)?nd.filter(x=>x!==d):[...nd,d];mark('#nchips',x=>nd.includes(x))};
+$('#addA').onclick=()=>{const t=$('#nt').value;if(!t)return;
+  S.alarms.push({id:Date.now(),t,l:$('#nl').value.trim(),days:nd.length?nd.slice():[0,1,2,3,4,5,6],on:true});sv();renderAlarms();renderHome();wl()};
+$('#test').onclick=()=>{unlock();startRing()};
+
+/* ---------- Schedule ---------- */
+let sd=new Date().getDay();
+function renderSched(){
+  mark('#dchips',d=>d===sd);
+  $('#clist').innerHTML=byTime(S.sched[sd]).map(rowHtml).join('')||'<p class="mut">برای این روز درسی ثبت نشده.</p>';
+}
+$('#dchips').onclick=e=>{const c=e.target.closest('.chip');if(!c)return;sd=+c.dataset.d;renderSched()};
+$('#clist').onclick=e=>{const r=e.target.closest('.row');if(!r||!e.target.closest('.x'))return;
+  S.sched[sd]=S.sched[sd].filter(c=>c.id!=r.dataset.id);sv();renderSched();renderHome()};
+$('#addC').onclick=()=>{const n=$('#cn').value.trim();if(!n)return;
+  (S.sched[sd]=S.sched[sd]||[]).push({id:Date.now(),t:$('#ct').value||'08:00',n});$('#cn').value='';sv();renderSched();renderHome()};
+
+/* ---------- Clock + alarm check ---------- */
+let fired='',ringing=false;
+function tick(){
+  const d=new Date();
+  $('#clk').textContent=fa(d.toLocaleTimeString('en-GB'));
+  $('#dt').textContent=d.toLocaleDateString('fa-IR-u-ca-persian',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  if(!ringing)due(d);
+  
+}
+
+/* ---------- Ringing: sound + vibration ---------- */
+let ac,beepT;
+function unlock(){if(!ac){try{ac=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}}if(ac&&ac.state==='suspended')ac.resume()}
+addEventListener('pointerdown',unlock);
+function beep(){
+  if(!ac)return;const o=ac.createOscillator(),g=ac.createGain(),t=ac.currentTime;
+  o.type='square';o.frequency.value=880;g.gain.setValueAtTime(.18,t);g.gain.exponentialRampToValueAtTime(.001,t+.4);
+  o.connect(g);g.connect(ac.destination);o.start();o.stop(t+.4);
+}
+let cur='';function startRing(k){if(ringing)return;cur=k||'';
+  ringing=true;$('#ring').classList.add('on');newChallenge();
+  const go=()=>{beep();navigator.vibrate&&navigator.vibrate([300,150,300])};go();beepT=setInterval(go,900);
+}
+function stopRing(){if(cur){S.set.ok=[...S.set.ok.slice(-20),cur];cur='';bump();sv()}clearInterval(beepT);ringing=false;$('#ring').classList.remove('on');navigator.vibrate&&navigator.vibrate(0)}
+
+/* ---------- Wake challenges ---------- */
+const bad=b=>{b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake')};
+function newChallenge(){const b=$('#chal'),c=S.set.ch;b.innerHTML='';(c==='math'||(c==='mix'&&Math.random()<.5))?mathCh(b,1):tapCh(b)}
+function mathCh(b,need){
+  const mul=Math.random()<.5,x=2+rnd(8),y=1+rnd(x-1),r=mul?x+y:x-y;
+  b.innerHTML=`<div>حل کن تا آلارم خاموش شود</div><div class="q">${fa(x)} ${mul?'+':'−'} ${fa(y)} = ؟</div>
+    <input id="ans" class="in" inputmode="numeric" dir="ltr" autocomplete="off"><button class="btn" id="ok">تأیید</button>`;
+  const chk=()=>{
+    const v=+$('#ans').value.replace(/[۰-۹]/g,c=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(c));
+    if(v===r){need>1?mathCh(b,need-1):stopRing()}else{bad(b);mathCh(b,need)}
+  };
+  $('#ok').onclick=chk;$('#ans').onkeydown=e=>e.key==='Enter'&&chk();$('#ans').focus();
+}
+function tapCh(b){
+  let nx=1;const nums=[1,2,3,4,5,6,7,8,9].sort(()=>Math.random()-.5);
+  b.innerHTML='<div>اعداد را به ترتیب از ۱ تا ۹ لمس کن</div><div class="grid">'+nums.map(n=>`<button class="tile" data-n="${n}">${fa(n)}</button>`).join('')+'</div>';
+  $$('#chal .tile').forEach(t=>t.onclick=()=>{
+    if(+t.dataset.n===nx){t.classList.add('done');t.disabled=true;if(++nx>9)setTimeout(stopRing,350)}
+    else{bad(b);nx=1;$$('#chal .tile').forEach(x=>{x.classList.remove('done');x.disabled=false})}
+  });
+}
+
+/* ---------- Keep screen awake while alarms are on ---------- */
+async function wl(){try{if(S.alarms.some(a=>a.on))await navigator.wakeLock.request('screen')}catch(e){}}
+document.addEventListener('visibilitychange',()=>document.visibilityState==='visible'&&wl());
+
+/* ---------- Due alarms + streak ---------- */
+function due(d){
+  for(const a of S.alarms){
+    if(!a.on||!a.days.includes(d.getDay()))continue;
+    const [h,m]=a.t.split(':'),t=new Date(d);t.setHours(+h,+m,0,0);
+    const k=t.toDateString()+a.t,diff=d-t;
+    if(diff>=0&&diff<6e5&&!S.set.ok.includes(k)){startRing(k);return}   // تا ۱۰ دقیقه بعد از زنگ، اگر حل نشده باشد دوباره زنگ می‌خورد
+  }
+}
+function bump(){
+  const t=new Date(),y=new Date(t-864e5);
+  if(S.set.last!==t.toDateString()){S.set.streak=S.set.last===y.toDateString()?S.set.streak+1:1;S.set.last=t.toDateString();renderHome()}
+}
+
+/* ---------- Settings ---------- */
+const syncSet=()=>{$$('#cchips .chip').forEach(c=>c.classList.toggle('on',c.dataset.c===S.set.ch));$('#pesw').classList.toggle('on',S.set.pe)};
+$('#cchips').onclick=e=>{const c=e.target.closest('.chip');if(!c)return;S.set.ch=c.dataset.c;sv();syncSet()};
+$('#pesw').onclick=()=>{S.set.pe=!S.set.pe;sv();syncSet()};
+
+/* ---------- Android (Capacitor): scheduled native notifications ---------- */
+const PE=/ورزش|تربیت\s*بدنی/;
+const LN=window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform()?Capacitor.Plugins.LocalNotifications:null;
+if(LN)$('#note').textContent='در نسخه اندروید، آلارم حتی وقتی برنامه بسته است به‌صورت اعلان با صدا می‌آید؛ اعلان را لمس کن تا چالش شروع شود.';
+async function syncNative(){
+  if(!LN)return;
+  try{
+    await LN.createChannel({id:'alarm',name:'آلارم مدرسه',importance:5,sound:'alarm.wav',vibration:true,visibility:1});
+    await LN.createChannel({id:'remind',name:'یادآورها',importance:4});
+    const p=await LN.checkPermissions();if(p.display!=='granted')await LN.requestPermissions();
+    const q=await LN.getPending();if(q.notifications.length)await LN.cancel({notifications:q.notifications});
+    const list=[];let i=1;
+    S.alarms.filter(a=>a.on).forEach(a=>{const [h,m]=a.t.split(':').map(Number);
+      a.days.forEach(d=>list.push({id:i++,title:a.l||'آلارم مدرسه',body:'وقت بیدار شدنه! اعلان را لمس کن و چالش را حل کن',channelId:'alarm',sound:'alarm.wav',schedule:{on:{weekday:d+1,hour:h,minute:m},allowWhileIdle:true}}))});
+    if(S.set.pe)Object.keys(S.sched).forEach(d=>{if(S.sched[d].some(c=>PE.test(c.n)))
+      list.push({id:i++,title:'فردا ورزش داری 🏃',body:'لباس ورزشی‌ات را همین حالا آماده کن',channelId:'remind',schedule:{on:{weekday:(+d+6)%7+1,hour:20,minute:0},allowWhileIdle:true}})});
+    if(list.length)await LN.schedule({notifications:list});
+  }catch(e){}
+}
+
+/* ---------- Init ---------- */
+mk('#nchips');mk('#dchips');mark('#nchips',d=>nd.includes(d));
+syncSet();renderHome();tick();setInterval(tick,1000);wl();syncNative();
+</script>
+</body>
+</html>
